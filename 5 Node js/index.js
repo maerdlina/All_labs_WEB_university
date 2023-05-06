@@ -1,5 +1,7 @@
 const http=require('node:http');
 
+const express = require("express");;
+
 const PORT=3000;
 const host='127.0.0.1';
 
@@ -42,7 +44,10 @@ const server=http.createServer((req,res) => {
                     res.end(JSON.stringify(comments))
                 })
                 
-            }else{
+            }else if(method === "GET"){
+                res.end(`comments : ${JSON.stringify(comments)}`);
+            }
+            else{
                 Bad(res)
             }
             break; 
